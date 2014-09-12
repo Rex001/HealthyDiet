@@ -1,0 +1,134 @@
+<android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_slidinglayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/home_slidinglayout_aboutus_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_xhsize"
+            android:text="关于我们" />
+
+        <Button
+            android:id="@+id/home_slidinglayout_suggest_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_xhsize"
+            android:text="意见反馈" />
+
+        <Button
+            android:id="@+id/home_slidinglayout_sharefriend_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_xhsize"
+            android:text="好友推荐" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/home_homelayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/title_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/blue_selector"
+                    android:gravity="bottom|center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:text="健康咨询"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_xhsize" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/blue_selector"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:text="健康一问"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_xhsize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/blue_selector"
+                    android:gravity="bottom|center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:text="食疗大全"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_xhsize" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/blue_selector"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="bottom|center_horizontal"
+                    android:paddingBottom="10dp"
+                    android:text="健康食谱"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_xhsize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_selector"
+                    android:gravity="center"
+                    android:text="健康知识"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_hsize" />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/blue_selector"
+                    android:layout_marginLeft="30dp"
+                    android:gravity="center"
+                    android:text="我的收藏"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_hsize" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.SlidingPaneLayout>
