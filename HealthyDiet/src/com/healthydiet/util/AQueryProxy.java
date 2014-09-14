@@ -3,7 +3,6 @@ package com.healthydiet.util;
 import java.util.Map;
 
 import org.json.JSONObject;
-import org.json.JSONTokener;
 
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -26,25 +25,20 @@ public class AQueryProxy {
 		for (String key : params.keySet()) {
 			log.v(key + " --> " + params.get(key));
 		}
-		aq.ajax(url, params, String.class, new com.androidquery.callback.AjaxCallback<String>() {
+		aq.ajax(url, params, JSONObject.class, new com.androidquery.callback.AjaxCallback<JSONObject>() {
 			@Override
-			public void callback(String url, String callbackStr, AjaxStatus status) {
-				log.v("status.getCode()=" + status.getCode() + ", callbackStr=" + callbackStr);
+			public void callback(String url, JSONObject jsonObject, AjaxStatus status) {
+				log.v("status.getCode()=" + status.getCode() + ", jsonObject=" + (jsonObject == null ? "null" : jsonObject.toString()));
 				try {
 					callback.callback();
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
-				if (status.getCode() == 200 && !TextUtils.isEmpty(callbackStr)) {
+				if (status.getCode() == 200 && jsonObject != null) {
 					try {
-						JSONTokener jsonParser = new JSONTokener(callbackStr);
-						JSONObject jsonObject = (JSONObject) jsonParser.nextValue();
-						JSONObject headObject = jsonObject.getJSONObject("head");
-						int code = headObject.getInt("code");
-						if (code == CommonData.ResultCode.SUCCESS.value) {
+						boolean result = jsonObject.optBoolean("success");
+						if (result) {
 							callback.onComplete(jsonObject);
-						} else if (code == CommonData.ResultCode.FAIL.value) {
-							Toast.makeText(aq.getContext(), headObject.getString("msg"), Toast.LENGTH_SHORT).show();
 						} else {
 							Toast.makeText(aq.getContext(), CommonData.NETWORK_ERROR, Toast.LENGTH_SHORT).show();
 						}
@@ -58,9 +52,10 @@ public class AQueryProxy {
 			}
 		});
 	}
-	
+
 	public interface AjaxCallback {
 		public void callback() throws Exception;
+
 		public void onComplete(JSONObject jsonObject) throws Exception;
 	}
 }

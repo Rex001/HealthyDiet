@@ -3,11 +3,12 @@ package com.healthydiet.common;
 
 public class CommonData {
 
+	//http://doc.yi18.net/
 	public static final boolean DEBUG = true;
 	public static final boolean ISRELEASE_URL = true;
 
 	private static final String SEVER_HOST = ISRELEASE_URL ? "http://api.yi18.net/" : "http://api.yi18.net/";// 服务端地址
-	public static final String SEVER_URL = SEVER_HOST + "ws/handler/";
+	public static final String SEVER_URL = SEVER_HOST;
 	public static final String SOCKET_HOST = ISRELEASE_URL ? "192.168.1.200" : "192.168.1.200";// 聊天地址
 	public static final int SOCKET_PORT = ISRELEASE_URL ? 8099 : 8099;// 聊天端口
 	
