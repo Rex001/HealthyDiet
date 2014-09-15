@@ -25,6 +25,8 @@ public class BaseActivity extends Activity {
 	public Handler handler = new Handler();
 	protected BaseActivity context;
 	private boolean isDestroy = true;
+	
+	
 	public LogUtil log = new LogUtil(getClass().getSimpleName());
 	protected AQuery aq;
 
