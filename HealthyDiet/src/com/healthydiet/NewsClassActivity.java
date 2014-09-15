@@ -41,7 +41,7 @@ public class NewsClassActivity extends PullActivity implements OnClickListener {
 		new Thread() {
 			@Override
 			public void run() {
-				new AQueryProxy(aq).ajax(CommonData.SEVER_URL + "news/newsclass", new HashMap<String, String>(), new AjaxCallback() {
+				new AQueryProxy(aq).ajax(CommonData.SEVER_URL + "news/newsclass", null, new AjaxCallback() {
 
 					@Override
 					public void onComplete(JSONObject jsonObject) throws Exception {
