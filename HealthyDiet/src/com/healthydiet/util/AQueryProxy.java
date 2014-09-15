@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.androidquery.AQuery;
@@ -22,8 +21,12 @@ public class AQueryProxy {
 
 	public void ajax(String url, Map<String, ?> params, final AjaxCallback callback) {
 		log.v("url --> " + url);
-		for (String key : params.keySet()) {
-			log.v(key + " --> " + params.get(key));
+		if (params != null && !params.isEmpty()) {
+			for (String key : params.keySet()) {
+				log.v(key + " --> " + params.get(key));
+			}
+		} else {
+			log.v("params --> null");
 		}
 		aq.ajax(url, params, JSONObject.class, new com.androidquery.callback.AjaxCallback<JSONObject>() {
 			@Override
