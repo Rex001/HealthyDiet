@@ -7,19 +7,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
 import com.androidquery.AQuery;
 import com.healthydiet.common.CommonData;
 import com.healthydiet.model.NewsClass;
 import com.healthydiet.util.AQueryProxy;
 import com.healthydiet.util.AQueryProxy.AjaxCallback;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.View.OnClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
 
 public class NewsClassActivity extends PullActivity implements OnClickListener {
 	
@@ -33,9 +32,7 @@ public class NewsClassActivity extends PullActivity implements OnClickListener {
 		aq.id(R.id.titlelayout_title_tv).text("健康咨询");
 		aq.id(R.id.titlelayout_left_btn).clicked(this);
 		adapter = new MyAdapter();
-		ListView listView = ((ListView)findViewById(R.id.newsclass_lv));
-//		aq.id(R.id.newsclass_lv).adapter(adapter);
-//		aq.id(R.id.newsclass_lv).adapter(adapter);
+		aq.id(R.id.newsclass_lv).adapter(adapter);
 		getData();
 	}
 
@@ -109,7 +106,7 @@ public class NewsClassActivity extends PullActivity implements OnClickListener {
 			AQuery aq = new AQuery(convertView);
 			NewsClass newsClass = list.get(position);
 			aq.id(R.id.class_item_name_tv).text(newsClass.name);
-			return null;
+			return convertView;
 		}
 		
 	}

@@ -15,6 +15,7 @@ public class PullActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		super.setContentView(R.layout.pull_layout);
 		refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refresh_widget);
+		refreshLayout.setEnabled(false);
 		refreshLayout.setOnRefreshListener(new OnRefreshListener(){
 			@Override
 			public void onRefresh() {
